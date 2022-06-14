@@ -1,20 +1,38 @@
 <div class="details-container">
-    <h2>
-        Company number
-    </h2>
-    <h2>
-        Registered office address
-    </h2>
-    <h2>
-        Company status
-    </h2>
-    <h2>
-        Company type
-    </h2>
-    <h2>Incorporated on</h2>
-    <a href="#" (click)="getAllOfficers()">List Officers</a>
-</div>
-<div class="officer-container">
-    <h2></h2>
-    <h2>Company number </h2>
+    <a href="#" (click)="backToResults()">Back to search results</a>
+    <h1>{{companyInfo.title}}</h1>
+    <div class="flex">
+        <h2>
+            Company number 
+        </h2>
+        <h4>&nbsp;{{companyInfo.company_number}}</h4>
+    </div>
+    <div class="flex">
+        <h2>
+            Registered office address 
+        </h2>&nbsp;
+        <h4>
+            {{companyInfo.address.address_line_1}}, 
+            {{companyInfo.address.locality}},
+            {{companyInfo.address.premises}}, 
+            {{companyInfo.address.country}} {{companyInfo.address.postcode}}
+        </h4>
+    </div>
+    <div class="flex">
+        <h2>
+            Company status 
+        </h2>&nbsp;
+        <h4> {{companyInfo.company_status | titlecase}}</h4>
+    </div>
+    <div class="flex">
+        <h2>
+            Company type
+        </h2> &nbsp;
+        <h4>{{companyInfo.company_type}}</h4>
+    </div>
+    <div class="flex">
+        <h2>Incorporated on</h2>
+        <h4>{{companyInfo.date_of_creation}}</h4>
+    </div>
+    <a (click)="navigateToOfficers()">List Officers</a>
 </div>

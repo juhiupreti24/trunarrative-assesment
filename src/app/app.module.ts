@@ -9,13 +9,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompanySearchService } from './company-search.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
+import { CompanyResultsComponent } from './company-results/company-results.component';
+import { OfficerListComponent } from './officer-list/officer-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CompanySearchComponent,
     CompanySearchResultsComponent,
-    CompanyDetailsComponent
+    CompanyDetailsComponent,
+    CompanyResultsComponent,
+    OfficerListComponent
   ],
   imports: [
     BrowserModule,

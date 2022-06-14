@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+a {
+    color: #0094DE;
+    text-decoration: underline;
+
+}
+a:visited {
+        text-decoration: none;
+color: #0094DE;
+
+}
+a:hover {
+text-decoration: underline;
+color: #DD127B;
+cursor: pointer;
+}
