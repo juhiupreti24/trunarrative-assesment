@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CompanySearchService {
-  url = 'https://angular-exercise.trunarrative.cloud/TruProxyAPI/rest/Companies/v1/Officers';
+  companydetailUrl = 'https://angular-exercise.trunarrative.cloud/TruProxyAPI/rest/Companies/v1/Search?Query=';
+  officerurl = 'https://angular-exercise.trunarrative.cloud/TruProxyAPI/rest/Companies/v1/Officers';
   constructor(private http: HttpClient) { }
 
   createAuthorizationHeader(headers: Headers) {
@@ -15,14 +16,26 @@ export class CompanySearchService {
     headers.append('Access-Control-Allow-Origin', '*');
   }
 
-
-  public getAllCompanies(urlHeaders: HttpHeaders, options?: any): Observable<any> { 
-    
-    return this.http.get(this.url + '?CompanyNumber=' + 10241297, {headers: urlHeaders});
-   
-// HttpRequest request = new HttpRequest('GET', this.url);
-// request.addHeader("x-api-key", '');
-// HttpResponse response = this.http.execute(request);
-// return Response;
+  public getAllCompanies(options?: any): Observable<any> { 
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'x-api-key': 'LVFkkEETEh6iKk2x05xBY7xfKSKmPGuV1gnilBnc',
+        'Accept': 'application/json'
+      })
+    };
+    return this.http.get(this.companydetailUrl + '?CompanyNumber=' + options, httpOptions);
+    // 10241297
+  }
+  public getAllCompanyOfficers(options?: any): Observable<any> { 
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'x-api-key': 'LVFkkEETEh6iKk2x05xBY7xfKSKmPGuV1gnilBnc',
+        'Accept': 'application/json'
+      })
+    };
+    return this.http.get(this.officerurl  + options, httpOptions);
+    // 10241297
   }
 }

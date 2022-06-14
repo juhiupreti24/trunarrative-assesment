@@ -5,21 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompanySearchComponent } from './company-search/company-search.component';
 import { CompanySearchResultsComponent } from './company-search-results/company-search-results.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompanySearchService } from './company-search.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CompanySearchComponent,
-    CompanySearchResultsComponent
+    CompanySearchResultsComponent,
+    CompanyDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [CompanySearchService],
   bootstrap: [AppComponent]

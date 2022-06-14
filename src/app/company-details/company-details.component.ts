@@ -3,32 +3,24 @@ import { Component, OnInit } from '@angular/core';
 import { CompanySearchService } from '../company-search.service';
 
 @Component({
-  selector: 'app-company-search',
-  templateUrl: './company-search.component.html',
-  styleUrls: ['./company-search.component.scss']
+  selector: 'app-company-details',
+  templateUrl: './company-details.component.html',
+  styleUrls: ['./company-details.component.scss']
 })
-export class CompanySearchComponent implements OnInit {
-  companyInput: any;
-  companyData: any;
+export class CompanyDetailsComponent implements OnInit {
+  officerList: any;
   constructor(private companyService: CompanySearchService) { }
 
   ngOnInit(): void {
-
-   
   }
 
-  getAllMatchingCompanies() {
+  getAllOfficers() {
     let httpheaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'x-api-key': 'LVFkkEETEh6iKk2x05xBY7xfKSKmPGuV1gnilBnc',
       'Access-Control-Allow-Origin': '*'
     });
 
-    // this.companyService.getAllCompanies(this.companyInput).subscribe(res => {
-    //   this.companyData = res;
-    // }, error => {
-    //   console.log('No results found');
-    // });
     const res = {
       "page_number": 1,
       "kind": "search#companies",
@@ -64,14 +56,13 @@ export class CompanySearchComponent implements OnInit {
               ]
           }]
     };
-    this.companyData = res.items;
+    this.officerList = res.items;
+    // this.companyService.getAllCompanyOfficers(this.companyInput).subscribe(res => {
+    //   this.officerList = res;
+    // }, error => {
+    //   console.log('No results found');
+    // });
+
   }
 
-  getCompanyInfo() {
-    this.getAllMatchingCompanies();
-  }
-
-  restCompanyData() {
-    this.companyData = [];
-  }
 }
