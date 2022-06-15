@@ -14,14 +14,9 @@ export class CompanySearchComponent implements OnInit {
   constructor(private companyService: CompanySearchService, private router: Router) { }
 
   ngOnInit(): void {
-
    
   }
 
-
-  getCompanyInfo() {
-    // this.getAllMatchingCompanies();
-  }
 
   restCompanyData() {
     this.companyData = [];
@@ -32,6 +27,7 @@ export class CompanySearchComponent implements OnInit {
   }
 
   navigateToResults() {
+    this.companyService.companyInput = this.companyInput;
     this.router.navigate(['/company-results']);
   }
 }

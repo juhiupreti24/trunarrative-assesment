@@ -3,6 +3,6 @@
         <input type="text" placeholder="Company name or number" [(ngModel)]="companyInput">
     </div>
     <div>
-        <button text="Search" value="Search" routerLink="company-results" routerLinkActive="active">Search</button>
+        <button text="Search" value="Search" [class.disabled]="!companyInput?.length" (click)="navigateToResults()">Search</button>
     </div>
 </div>
